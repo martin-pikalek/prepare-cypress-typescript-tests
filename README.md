@@ -27,7 +27,8 @@
 - ##### Husky & lint-staged (pre-commit & pre-push hooks)
     - pre-configured to execute lint and prettier formatting on `git commit`
 - ##### Commitlint (commit-msg hook)
-    - pre-configured to lint commit messages and generating CHANGELOG
+    - pre-configured to lint commit messages
+    - available package.json script to start commit prompt cli
 - ##### VScode Configuration
     - to use `eslint` as default formatter
     - to `auto-format` code on save and focus
