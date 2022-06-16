@@ -39,6 +39,11 @@
     - as example of `CICD integration`   
 
 ## Usage
+> ## Note: `Still in development!` 
+> - #### in meantime you can create your own project on github with this github template (it is public template).
+> - #### later will be installation available as npx executable (As described below) 
+>   -  #### will be possible to include this cypress testing template to already existing project
+>   -  #### for example in application Frontend repository 
 
 Run `npx prepare-cypress-typescript-tests` script and type name of your project `my-cypress-tests` as next argument
 ```sh
