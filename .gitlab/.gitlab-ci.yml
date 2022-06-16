@@ -1,0 +1,35 @@
+variables:
+  npm_config_cache: "$CI_PROJECT_DIR/.npm"
+  CYPRESS_CACHE_FOLDER: "$CI_PROJECT_DIR/cache/Cypress"
+
+image: cypress/base:12
+
+# Cache modules in between jobs
+cache:
+  key: $CI_COMMIT_REF_SLUG
+  paths:
+    - .npm
+    - cache/Cypress
+    - node_modules
+
+before_script:
+  - npm ci --cache .npm --prefer-offline
+  - npx cypress cache path
+  - npx cypress cache list
+  - npx cypress verify
+
+test-e2e:
+  script:
+      - npx cypress run --e2e --browser electron
+  # store screenshots and videos artifacts and delete them after 1 day
+  artifacts:
+    paths:
+      - $CI_PROJECT_DIR/cypress/screenshots/
+      - $CI_PROJECT_DIR/cypress/videos/
+    expire_in: 1 day
+  # run job only if target branch is "main"  
+  only:
+    - main
+  # job can be executed only by gitlab runner with tag "gitlab-runner-tag"
+  tags:
+    - gitlab-runner-tag

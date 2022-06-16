@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+      "noEmit": true,
+      "target": "es5",
+      "lib": ["es5", "dom"],
+      "types": ["cypress","node","dayjs"],
+      "resolveJsonModule": true,
+      "esModuleInterop": true,
+      "allowSyntheticDefaultImports": true,
+      "baseUrl":"cypress",
+      "paths": {
+        "@fixtures/*": ["fixtures/*"]
+      }
+    // be explicit about types included
+    // to avoid clashing with Jest types
+  },
+    "include": ["**/*.ts", "**/*.cy.ts"]
+  }
